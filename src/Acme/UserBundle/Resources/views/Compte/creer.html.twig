@@ -9,23 +9,23 @@
 				<form name="acme_userbundle_comptetype aaa" method="post" action="">
 					<div id="acme_userbundle_comptetype">
 						<div class="panel-body">
+							<div class="input-group">
+								<!--{{ form_row(form.nom) }}-->
+								<label for="acme_userbundle_comptetype_nom" class="required">Nom</label>
+								<input type="text" id="acme_userbundle_comptetype_nom" name="acme_userbundle_comptetype[nom]" required="required" />
+							</div>
+							<div class="input-group">
+								<!--{{ form_row(form.numeroCompte) }}-->
+								<label for="acme_userbundle_comptetype_numeroCompte" class="required">Num&eacute;ro compte</label>
+								<input type="text" id="acme_userbundle_comptetype_numeroCompte" name="acme_userbundle_comptetype[numeroCompte]" required="required" />
+							</div>
+						</div>
+						<div class="panel-footer">
 							<div>
-								{{ form_row(form.nom) }}
-							  <!-- <label for="acme_userbundle_comptetype_nom" class="required">Nom</label>
-							 <input type="text" id="acme_userbundle_comptetype_nom" name="acme_userbundle_comptetype[nom]" required="required" /> -->
+								<button type="submit" id="acme_userbundle_comptetype_save" class="btn btn-default" name="acme_userbundle_comptetype[save]">Enregistrer</button>
 							</div>
-							<div>
-								{{ form_row(form.numeroCompte) }}
-							   <!-- <label for="acme_userbundle_comptetype_numeroCompte" class="required">Numero compte</label>
-								<input type="text" id="acme_userbundle_comptetype_numeroCompte" name="acme_userbundle_comptetype[numeroCompte]" required="required" /> -->
-							</div>
-							</div>
-							<div class="panel-footer">
-								<div>
-									<button type="submit" id="acme_userbundle_comptetype_save" class="btn btn-default" name="acme_userbundle_comptetype[save]">Enregistrer</button>
-								</div>
-							</div>
-							{{ form_row(form._token) }}
+						</div>
+						{{ form_row(form._token) }}
 					</div>
 				</form>
 			</div>
