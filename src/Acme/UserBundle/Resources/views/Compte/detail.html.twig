@@ -50,7 +50,7 @@
 							{% if passeuil %}
 								<a href="{{ path('creerSeuil', {'id' : compte.id} )}}" class="btn btn-default">Aucun seuil</a>
 							{% else %}
-								<a href="{{ path('modifSeuil', {'id' : seuil.id} )}}" class="btn btn-default">Seuil : {{ seuil.seuil }}</a>
+								<a href="{{ path('modifSeuil', {'id' : seuil.id} )}}" class="btn btn-default">Seuil : {{ seuil.seuil }}&nbsp;€</a>
 							{% endif %}
 						</div><br /><br />
 						{{ compte.nom }}<br />
