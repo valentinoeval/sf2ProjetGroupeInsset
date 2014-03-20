@@ -21,8 +21,6 @@ class CompteType extends AbstractType{
         $builder
             ->add('nom', 'text')
             ->add('numeroCompte', 'text');
-
-
     }
 
     /**
