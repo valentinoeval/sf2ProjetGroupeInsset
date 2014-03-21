@@ -15,20 +15,14 @@
 								<div class="input-group">
 									<span class="input-group-addon"><span class="glyphicon glyphicon-euro"></span></span>
 									<input type="text" id="acme_userbundle_opbancairetype_montant" class="form-control" name="acme_userbundle_opbancairetype[montant]" required="required" placeholder="Montant" />
-									<span class="input-group-addon">{{ form_label(form.type) }}&nbsp;{{ form_widget(form.type) }}</span>
+									<span class="input-group-addon">Crédit ? {{ form_widget(form.type) }}</span>
 								</div><br />
-
 								<div class="input-group">
 									<div class="input-group-btn">
 										<button type="button" class="btn btn-default" tabindex="-1">Catégorie</button>
-										<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1">
-											<span class="caret"></span>
-											<span class="sr-only">Toggle Dropdown</span>
-										</button>
-										{{ form_widget(form.categories) }}
 									</div>
+									{{ form_widget(form.categories) }}
 								</div>
-								
 							</div>
 							<div class="panel-footer">
 								<div>

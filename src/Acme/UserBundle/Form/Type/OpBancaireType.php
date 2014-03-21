@@ -23,8 +23,7 @@ class OpBancaireType extends AbstractType{
 				'multiple' => false,
 				'expanded' => false,
 				'attr'	=> array(
-					'class' => 'dropdown-menu',
-					'role'	=> 'menu'
+					'class' => 'select-group',
 				)
 			))
 			->add('save', 'submit');
