@@ -15,83 +15,74 @@ use Acme\UserBundle\Entity\OperationPeriodique;
 
 class OpBancaireController extends Controller
 {
-    /**
-     * Cette fonction va creer une opération bancaire pour le compte bancaire selectionné
-     *
-     * @param Request $request
-     * @param $id id du compte bancaire
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     */
-    public function creerAction(Request $request, $id)
-    {
-        //verification de l'identification au compte
-        $user = $this->container->get('security.context')->getToken()->getUser();
-        if (!is_object($user) ){
-            return $this->redirect($this->generateUrl('fos_user_security_login'));
-        }
+	/**
+	 * Cette fonction va creer une opération bancaire pour le compte bancaire selectionné
+	 *
+	 * @param Request $request
+	 * @param $id id du compte bancaire
+	 * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+	 */
+	public function creerAction(Request $request, $id)
+	{
+		//verification de l'identification au compte
+		$user = $this->container->get('security.context')->getToken()->getUser();
+		if (!is_object($user) ){
+			return $this->redirect($this->generateUrl('fos_user_security_login'));
+		}
 
-        $repository = $this->getDoctrine()
-            ->getRepository('UserBundle:Compte');
-        $compte = $repository->findOneById($id);
+		$repository = $this->getDoctrine()
+			->getRepository('UserBundle:Compte');
+		$compte = $repository->findOneById($id);
 
-        $OpBancaire = new OperationBancaire();
-        $opPeriodique = new OperationPeriodique();
+		$OpBancaire = new OperationBancaire();
+		$opPeriodique = new OperationPeriodique();
 
+		//appel du formulaire de creation d'opération
+		$form = $this->createForm(new OpBancaireType(), $OpBancaire);
 
-        //appel du formulaire de creation d'opération
-        $form = $this->createForm(new OpBancaireType(), $OpBancaire);
-        $form->add('type', 'checkbox', array(
-            'label'     => 'Crédit ?',
-            'required'  => false,
-        ) );
-        $form->add('save', 'submit');
+		if ($request->isMethod('POST')) {
+			$form->bind($request);
 
-        if ($request->isMethod('POST')) {
-            $form->bind($request);
+			$em = $this->getDoctrine()->getManager();
+			$reg = $form->getData();
+			$reg->setDateOperation(new \DateTime());
 
-            $em = $this->getDoctrine()->getManager();
-            $reg = $form->getData();
-            $reg->setDateOperation(new \DateTime());
-
-            $reg->setCompteId($compte);
-            $reg->setVerif(1);
+			$reg->setCompteId($compte);
+			$reg->setVerif(1);
 
 
-            $em->persist($reg);
-            $em->flush();
-            return $this->redirect($this->generateUrl('detailCompte', array( 'id'=>$id)));
+			$em->persist($reg);
+			$em->flush();
+			return $this->redirect($this->generateUrl('detailCompte', array( 'id'=>$id)));
+		}
 
-        }
+		return $this->render('UserBundle:OpBancaire:creer.html.twig', array(
+			'form' => $form->createView(),
+		));
+	}
 
-        return $this->render('UserBundle:OpBancaire:creer.html.twig', array(
-            'form' => $form->createView(),
-        ));
-    }
+	public function supprAction($id , $idcompte)
+	{
+		//verification de l'identification au compte
+		$user = $this->container->get('security.context')->getToken()->getUser();
+		if (!is_object($user) ){
+			return $this->redirect($this->generateUrl('fos_user_security_login'));
+		}
 
-    public function supprAction($id , $idcompte)
-    {
-        //verification de l'identification au compte
-        $user = $this->container->get('security.context')->getToken()->getUser();
-        if (!is_object($user) ){
-            return $this->redirect($this->generateUrl('fos_user_security_login'));
-        }
-
-        $operation = $this->getDoctrine()
-            ->getRepository('UserBundle:OperationBancaire')
-            ->find($id);
+		$operation = $this->getDoctrine()
+			->getRepository('UserBundle:OperationBancaire')
+			->find($id);
 
 
-        if (!$operation)
-        {
-            throw $this->createNotFoundException(
-                'Aucun produit trouvé pour cet id : '.$id
-            );
-        }
-        $em = $this->getDoctrine()->getManager();
-        $em->remove($operation);
-        $em->flush();
+		if (!$operation) {
+			throw $this->createNotFoundException(
+				'Aucun produit trouvé pour cet id : '.$id
+			);
+		}
+		$em = $this->getDoctrine()->getManager();
+		$em->remove($operation);
+		$em->flush();
 
-        return $this->redirect($this->generateUrl('detailCompte', array( 'id'=>$idcompte)));
-
-    }
+		return $this->redirect($this->generateUrl('detailCompte', array( 'id'=>$idcompte)));
+	}
 }

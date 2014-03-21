@@ -8,22 +8,22 @@
 				{{ form_errors(form) }}
 				<div class="input-group">
 					<span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
-					{{ form_widget (form.email, {'attr':
+					{{ form_widget(form.email, {'attr':
 					{'class': 'form-control' , 'placeholder' : 'Adresse eMail'}}) }}
 				</div> </br>
 				<div class="input-group">
 					<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-					{{ form_widget (form.username, {'attr':
+					{{ form_widget(form.username, {'attr':
 					{'class': 'form-control' , 'placeholder' : "Nom d'utilisateur"}}) }}
 				</div> </br>
 				<div class="input-group">
 					<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-					{{ form_widget (form.plainPassword.first, {'attr':
+					{{ form_widget(form.plainPassword.first, {'attr':
 					{'class': 'form-control' , 'placeholder' : 'Mot de passe'}}) }}
 				</div> </br>
 				<div class="input-group">
 					<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-					{{ form_widget (form.plainPassword.second, {'attr':
+					{{ form_widget(form.plainPassword.second, {'attr':
 					{'class': 'form-control' , 'placeholder' : 'Confirmation'}}) }}
 				</div> </br>
 				{{ form_rest(form) }}
