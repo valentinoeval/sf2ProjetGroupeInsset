@@ -10,19 +10,17 @@
 					<div id="acme_userbundle_comptetype">
 						<div class="panel-body">
 							<div class="input-group">
-								<!--{{ form_row(form.nom) }}-->
-								<label for="acme_userbundle_comptetype_nom" class="required">Nom</label>
-								<input type="text" id="acme_userbundle_comptetype_nom" name="acme_userbundle_comptetype[nom]" required="required" />
-							</div>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-font"></span></span>
+								{{ form_widget(form.nom) }}
+							</div><br />
 							<div class="input-group">
-								<!--{{ form_row(form.numeroCompte) }}-->
-								<label for="acme_userbundle_comptetype_numeroCompte" class="required">Num&eacute;ro compte</label>
-								<input type="text" id="acme_userbundle_comptetype_numeroCompte" name="acme_userbundle_comptetype[numeroCompte]" required="required" />
+								<span class="input-group-addon"><span class="glyphicon glyphicon-font"></span></span>
+								{{ form_widget(form.numeroCompte) }}
 							</div>
 						</div>
 						<div class="panel-footer">
 							<div>
-								<button type="submit" id="acme_userbundle_comptetype_save" class="btn btn-default" name="acme_userbundle_comptetype[save]">Enregistrer</button>
+								<button type="submit" id="acme_userbundle_comptetype_save" name="acme_userbundle_comptetype[save]" value="Enregistrer" class="btn btn-default">Enregistrer</button>
 							</div>
 						</div>
 						{{ form_row(form._token) }}

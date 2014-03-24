@@ -18,11 +18,13 @@ class SeuilType extends AbstractType{
     {
         $builder
             ->add('seuil', 'text')
-            ->add('save', 'submit');
-
-
+            ->add('save', 'submit', array(
+                'attr'  => array(
+                    'value'         => 'Enregistrer',
+                    'class'         => 'btn btn-default'
+                )
+            ));
     }
-
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
@@ -30,8 +32,6 @@ class SeuilType extends AbstractType{
             'data_class' => 'Acme\UserBundle\Entity\Seuil'
         ));
     }
-
-
 
     public function getName()
     {
