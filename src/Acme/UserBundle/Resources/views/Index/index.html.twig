@@ -5,14 +5,14 @@
 		<div class="jumbotron">
 			<div class="row">
 				<div class="col-md-3">
-					<img src="<?php echo $this->basePath('img/logo.png'); ?>" />
+					<img src="{{ asset('bundles/user/img/logo.png') }}" />
 				</div>
 				<div class="col-md-9">
 					<h1>Bienvenue sur <span class="zf-green">Giltin'</span> !</h1>
 					<p>
-						Giltin' est LA référence des applications en matière de gestion de comptes bancaire.<br />
-						Gérez facilement votre liste de clients en quelques clics de souris, c'est maintenant possible!<br />
-						Connectez-vous dès à présent.
+						Giltin' est LA r&eacute;f&eacute;rence des applications en mati&egrave;re de gestion de comptes bancaire.<br />
+						G&eacute;rez facilement votre liste de comptes et leurs op&eacute;rations associ&eacute;es en quelques clics de souris, c'est maintenant possible!<br />
+						Connectez-vous d&egrave;s &agrave; pr&eacute;sent.
 					</p><br />
 					{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 						<p><a href="{{ path('fos_user_security_login') }}" class="btn btn-primary btn-lg btn-success" role="button">Authentification</a></p>
