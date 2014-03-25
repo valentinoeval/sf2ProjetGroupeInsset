@@ -14,8 +14,8 @@
 						G&eacute;rez facilement votre liste de comptes et leurs op&eacute;rations associ&eacute;es en quelques clics de souris, c'est maintenant possible!<br />
 						Connectez-vous d&egrave;s &agrave; pr&eacute;sent.
 					</p><br />
-					{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-						<p><a href="{{ path('fos_user_security_login') }}" class="btn btn-primary btn-lg btn-success" role="button">Authentification</a></p>
+					{% if not(is_granted("IS_AUTHENTICATED_REMEMBERED")) %}
+						<p><a href="{{ path('fos_user_security_login') }}" class="btn btn-primary btn-lg" role="button">Authentification</a></p>
 					{% endif %}
 				</div>
 			</div>
