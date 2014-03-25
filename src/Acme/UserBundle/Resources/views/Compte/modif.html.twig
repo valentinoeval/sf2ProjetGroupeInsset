@@ -12,6 +12,7 @@
 							<div class="input-group">
 								<span class="input-group-addon"><span class="glyphicon glyphicon-font"></span></span>
 								{{ form_widget(form.nom) }}
+								<span class="input-group-addon">Activé&nbsp;{{ form_widget(form.actif) }}</span>
 								<!-- <label for="acme_userbundle_comptetype_nom" class="required">Nom</label>
 							   <input type="text" id="acme_userbundle_comptetype_nom" name="acme_userbundle_comptetype[nom]" required="required" /> -->
 							</div><br />
@@ -20,9 +21,6 @@
 								{{ form_widget(form.numeroCompte) }}
 								<!-- <label for="acme_userbundle_comptetype_numeroCompte" class="required">Numero compte</label>
 								 <input type="text" id="acme_userbundle_comptetype_numeroCompte" name="acme_userbundle_comptetype[numeroCompte]" required="required" /> -->
-							</div><br />
-							<div class="input-group">
-								{{ form_row(form.actif) }}
 							</div>
 						</div>
 						<div class="panel-footer">
