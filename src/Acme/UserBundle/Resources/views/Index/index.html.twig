@@ -2,6 +2,53 @@
 
 {% block contenu %}
 	<div class="container">
-		<p>Bienvenue sur Giltin</p>
+		<div class="jumbotron">
+			<div class="row">
+				<div class="col-md-3">
+					<img src="{{ asset('bundles/user/img/logo.png') }}" />
+				</div>
+				<div class="col-md-9">
+					<h1>Bienvenue sur <span class="zf-green">Giltin'</span> !</h1>
+					<p>
+						Giltin' est LA r&eacute;f&eacute;rence des applications en mati&egrave;re de gestion de comptes bancaire.<br />
+						G&eacute;rez facilement votre liste de comptes et leurs op&eacute;rations associ&eacute;es en quelques clics de souris, c'est maintenant possible!<br />
+						Connectez-vous d&egrave;s &agrave; pr&eacute;sent.
+					</p><br />
+					{% if not(is_granted("IS_AUTHENTICATED_REMEMBERED")) %}
+						<p><a href="{{ path('fos_user_security_login') }}" class="btn btn-primary btn-lg" role="button">Authentification</a></p>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="panel panel-default container-block">
+					<div class="panel-heading"><span class="glyphicon glyphicon-eye-open"></span> Visualisez vos comptes bancaires</div>
+					<div class="panel-body">
+						<img src="{{ asset('bundles/user/img/comptes.jpg') }}" class="thumb" alt="Visualisez vos comptes bancaires"/><br /><br />
+						Vous aurez un aperçu rapide de l'ensemble de vos comptes bancaires afin d'accéder rapidement à l'ensemble de leurs opérations bancaires.
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="panel panel-default container-block">
+					<div class="panel-heading"><span class="glyphicon glyphicon-cog"></span> Définition d'un seuil d'alerte</div>
+					<div class="panel-body">
+						<img src="{{ asset('bundles/user/img/seuil.jpg') }}" class="thumb" alt="Définition d'un seuil d'alerte"/><br /><br />
+						Afin de mieux gérer votre budget, vous pourrez définir un seuil d'alerte à partir duquel vous recevrez un message si vous passez en dessous.
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="panel panel-default container-block">
+					<div class="panel-heading"><span class="glyphicon glyphicon-eye-open"></span> Visualisez vos op&eacute;rations bancaires</div>
+					<div class="panel-body">
+						<img src="{{ asset('bundles/user/img/operations.jpg') }}" class="thumb" alt="Visualisez vos op&eacute;rations bancaires"/><br /><br />
+						Vous pourrez consulter la liste de vos dépenses et recettes ajoutées manuellement du mois courant et de ceux précédents.
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 {% endblock %}

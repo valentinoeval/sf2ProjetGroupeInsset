@@ -14,27 +14,31 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class SeuilType extends AbstractType{
 
-    public function buildForm(FormBuilderInterface $builder, array $options)
-    {
-        $builder
-            ->add('seuil', 'text')
-            ->add('save', 'submit');
+	public function buildForm(FormBuilderInterface $builder, array $options)
+	{
+		$builder
+			->add('seuil', 'text', array(
+				'attr'  => array(
+					'placeholder'   => 'Seuil (€)',
+					'class'         => 'form-control'
+				)
+			))
+			->add('save', 'submit', array(
+				'attr'  => array(
+					'class'         => 'btn btn-default'
+				)
+			));
+	}
 
+	public function setDefaultOptions(OptionsResolverInterface $resolver)
+	{
+		$resolver->setDefaults(array(
+			'data_class' => 'Acme\UserBundle\Entity\Seuil'
+		));
+	}
 
-    }
-
-
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        $resolver->setDefaults(array(
-            'data_class' => 'Acme\UserBundle\Entity\Seuil'
-        ));
-    }
-
-
-
-    public function getName()
-    {
-        return 'acme_userbundle_opbancairetype';
-    }
+	public function getName()
+	{
+		return 'acme_userbundle_opbancairetype';
+	}
 }

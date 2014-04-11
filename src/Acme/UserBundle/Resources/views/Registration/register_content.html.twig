@@ -1,35 +1,40 @@
 {% trans_default_domain 'FOSUserBundle' %}
 <div class="container">
 	<div class="row">
-		<div class="col-md-4 col-md-offset-4 container-block margin-top">
-			<img src="{{ asset('bundles/user/img/logo.png') }}" id="logo" />
-			<h1>Registration</h1><br />
-			<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
-				{{ form_errors(form) }}
-				<div class="input-group">
-					<span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
-					{{ form_widget (form.email, {'attr':
-					{'class': 'form-control' , 'placeholder' : 'Adresse eMail'}}) }}
-				</div> </br>
-				<div class="input-group">
-					<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-					{{ form_widget (form.username, {'attr':
-					{'class': 'form-control' , 'placeholder' : "Nom d'utilisateur"}}) }}
-				</div> </br>
-				<div class="input-group">
-					<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-					{{ form_widget (form.plainPassword.first, {'attr':
-					{'class': 'form-control' , 'placeholder' : 'Mot de passe'}}) }}
-				</div> </br>
-				<div class="input-group">
-					<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-					{{ form_widget (form.plainPassword.second, {'attr':
-					{'class': 'form-control' , 'placeholder' : 'Confirmation'}}) }}
-				</div> </br>
-				{{ form_rest(form) }}
-				<input type="submit" id="_submit" class="btn btn-default" name="_submit" value="{{ 'Inscription'|trans }}" />
-			</form>
-			<br />
+		<div class="col-md-4 col-md-offset-4">
+				<div class="row">
+					<div class="col-md-10 col-md-offset-1 container-block margin-top">
+						<img src="{{ asset('bundles/user/img/logo.png') }}" id="logo" />
+						<h1>Sign Up</h1><br />
+						<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+							{{ form_errors(form) }}
+							<div class="input-group">
+								<span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+								{{ form_widget(form.email, {'attr':
+								{'class': 'form-control' , 'placeholder' : 'Adresse eMail'}}) }}
+							</div> </br>
+							<div class="input-group">
+								<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+								{{ form_widget(form.username, {'attr':
+								{'class': 'form-control' , 'placeholder' : "Nom d'utilisateur"}}) }}
+							</div> </br>
+							<div class="input-group">
+								<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+								{{ form_widget(form.plainPassword.first, {'attr':
+								{'class': 'form-control' , 'placeholder' : 'Mot de passe'}}) }}
+							</div> </br>
+							<div class="input-group">
+								<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+								{{ form_widget(form.plainPassword.second, {'attr':
+								{'class': 'form-control' , 'placeholder' : 'Confirmation'}}) }}
+							</div> </br>
+							{{ form_rest(form) }}
+							<input type="submit" id="_submit" class="btn btn-default btn-submit" name="_submit" value="{{ 'Inscription'|trans }}" />
+						</form>
+						<br />
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

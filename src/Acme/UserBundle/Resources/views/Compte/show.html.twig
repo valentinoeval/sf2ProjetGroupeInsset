@@ -12,7 +12,7 @@
 				{% endfor %}
 				<div class="panel panel-default container-block">
 					<div class="panel-heading">
-						<h3 class="panel-title">Liste de vos comptes</h3>
+						<h3 class="panel-title"><span class="glyphicon glyphicon-list"></span>&nbsp;Liste de vos comptes</h3>
 					</div>
 					<div class="panel-body no-border">
 						<table class="table remove-border">
@@ -62,10 +62,12 @@
 			<div class="col-md-3">
 				<div class="panel panel-default container-block">
 					<div class="panel-heading">
-						<h3 class="panel-title">Param&egrave;tres</h3>
+						<h3 class="panel-title"><span class="glyphicon glyphicon-cog"></span>&nbsp;Param&egrave;tres</h3>
 					</div>
 					<div class="panel-body">
-						<a href="{{ path('creerCompte') }}" title="Ajouter une opération bancaire"><span class="glyphicon glyphicon-plus"></span>&nbsp;Créer un compte</a>
+						<div class="btn-group">
+							<a href="{{ path('creerCompte') }}" title="Ajouter une opération bancaire" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>&nbsp;Créer un compte</a>
+						</div>
 					</div>
 				</div>
 			</div>

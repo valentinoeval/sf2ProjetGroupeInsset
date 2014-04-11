@@ -149,7 +149,6 @@ class CompteController extends Controller
 
 
         $form = $this->createForm(new CompteType(), $compte);
-        $form->add('save', 'submit');
 
         $form->handleRequest($request);
 

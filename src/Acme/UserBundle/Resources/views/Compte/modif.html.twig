@@ -5,27 +5,27 @@
 	<div class="container">
 		<div class="col-md-4 col-md-offset-4">
 			<div class="panel panel-default container-block" >
-				<div class="panel-heading">Modifier le compte bancaire</div>
+				<div class="panel-heading"><span class="glyphicon glyphicon-edit"></span>&nbsp;Modifier le compte bancaire</div>
 				<form name="acme_userbundle_comptetype aaa" method="post" action="">
 					<div id="acme_userbundle_comptetype">
 						<div class="panel-body">
 							<div class="input-group">
-								{{ form_row(form.nom) }}
+								<span class="input-group-addon"><span class="glyphicon glyphicon-font"></span></span>
+								{{ form_widget(form.nom) }}
+								<span class="input-group-addon">Activé&nbsp;{{ form_widget(form.actif) }}</span>
 								<!-- <label for="acme_userbundle_comptetype_nom" class="required">Nom</label>
 							   <input type="text" id="acme_userbundle_comptetype_nom" name="acme_userbundle_comptetype[nom]" required="required" /> -->
-							</div>
+							</div><br />
 							<div class="input-group">
-								{{ form_row(form.numeroCompte) }}
+								<span class="input-group-addon"><span class="glyphicon glyphicon-font"></span></span>
+								{{ form_widget(form.numeroCompte) }}
 								<!-- <label for="acme_userbundle_comptetype_numeroCompte" class="required">Numero compte</label>
 								 <input type="text" id="acme_userbundle_comptetype_numeroCompte" name="acme_userbundle_comptetype[numeroCompte]" required="required" /> -->
-							</div>
-							<div class="input-group">
-								{{ form_row(form.actif) }}
 							</div>
 						</div>
 						<div class="panel-footer">
 							<div>
-								<button type="submit" id="acme_userbundle_comptetype_save" name="acme_userbundle_comptetype[save]">Save</button>
+								<button type="submit" id="acme_userbundle_comptetype_save" class="btn btn-default" name="acme_userbundle_comptetype[save]">Enregistrer</button>
 							</div>
 						</div>
 						{{ form_row(form._token) }}
